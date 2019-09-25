@@ -21,6 +21,9 @@ def reverse_rec(int_list):  # must use recursion
     if int_list is None:  # Checks to see if the List is empty
         raise ValueError()  # If so, raise a ValueError
 
+    if not int_list:  # Checks to see if the List is []
+        return None  # If so, return none
+
     new_list = []
 
     if len(int_list) == 1:  # Base Case: if list is 1 item long, just return that one item

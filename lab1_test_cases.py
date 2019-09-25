@@ -47,6 +47,25 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(reverse_rec([1, 2, 3]), [3, 2, 1])
         self.assertEqual(reverse_rec([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1])
 
+    def test_reverse_rec_neg(self):
+        """Checking for function when negative"""
+        self.assertEqual(reverse_rec([-1, -2, -3]), [-3, -2, -1])
+        self.assertEqual(reverse_rec([-1, -2, -3, -4, -5]), [-5, -4, -3, -2, -1])
+
+    def test_reverse_rec_out_of_order(self):
+        """Checking for function when list is out of order"""
+        self.assertEqual(reverse_rec([-1, -3, -2]), [-2, -3, -1])
+
+    def test_reverse_rec_empty(self):
+        """Checking for function when list is empty"""
+        self.assertEqual(reverse_rec([]), None)
+
+    def test_reverse_rec_none(self):
+        """Checking for function when list is None"""
+        tlist = None
+        with self.assertRaises(ValueError):  # used to check for exception
+            reverse_rec(tlist)
+
     # Testing Binary Search Function
     def test_bin_search(self):
         """Checking for basic coding functioning"""
@@ -73,6 +92,9 @@ class TestLab1(unittest.TestCase):
 
     def test_bin_search_0_to_0(self):
         """Checking for being able to handle going from 0 to 0"""
+        list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
         self.assertEqual(bin_search(4, 0, 0, list_val), None)  # Handle going from 0 to 0
 
     def test_bin_search_Empty_List(self):
@@ -80,6 +102,26 @@ class TestLab1(unittest.TestCase):
         self.assertEqual(bin_search(4, 0, 0, []), None)  # handle Empty List
         self.assertEqual(bin_search(4, 0, len([4]) - 1, [4]), 0)  # Finding 1 result in a list of 1
 
+    def test_bin_search_none(self):
+        """Checking for function when list is None"""
+        tlist = None
+        with self.assertRaises(ValueError):  # used to check for exception
+            reverse_rec(tlist)
+
+    def test_bin_search_all_sameish(self):
+        """Checking for function when all numbers are the target besides a few"""
+        list_val = [0, 4, 4, 10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(4, 0, len(list_val) - 1, list_val), 1 or 2)  
+        
+    def test_bin_search_high_low(self):
+        """Checking for being able to handle target at start and end"""
+        list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(0, 0, len(list_val) - 1, list_val), 0)
+        self.assertEqual(bin_search(10, 0, len(list_val) - 1, list_val), 8)
 
 if __name__ == "__main__":
     unittest.main()
