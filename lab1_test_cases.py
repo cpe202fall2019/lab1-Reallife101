@@ -58,7 +58,7 @@ class TestLab1(unittest.TestCase):
 
     def test_reverse_rec_empty(self):
         """Checking for function when list is empty"""
-        self.assertEqual(reverse_rec([]), None)
+        self.assertEqual(reverse_rec([]), [])
 
     def test_reverse_rec_none(self):
         """Checking for function when list is None"""
@@ -74,6 +74,12 @@ class TestLab1(unittest.TestCase):
         high = len(list_val) - 1
         self.assertEqual(bin_search(4, 0, len(list_val) - 1, list_val), 4)
         self.assertEqual(bin_search(10, 0, len(list_val) - 1, list_val), 8)
+
+    def test_bin_search_None(self):
+        """Checking for None"""
+        tlist = None
+        with self.assertRaises(ValueError):  # used to check for exception
+            self.assertEqual(bin_search(4, 0, 10, tlist), 4)
 
     def test_bin_search_DNE(self):
         """Checking for answers where it should be none"""
