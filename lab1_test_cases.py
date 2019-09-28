@@ -96,6 +96,13 @@ class TestLab1(unittest.TestCase):
         high = len(list_val) - 1
         self.assertEqual(bin_search(0, 0, len(list_val) - 1, list_val), 0)  # First Value find
 
+    def test_bin_search_Find_First_Value2(self):
+        """Checking for being able find the target if it is the first value"""
+        list_val = [3, 4, 5, 6, 7, 8, 9, 10, 11]
+        low = 0
+        high = len(list_val) - 1
+        self.assertEqual(bin_search(3, 0, len(list_val) - 1, list_val), 0)  # First Value find
+
     def test_bin_search_0_to_0(self):
         """Checking for being able to handle going from 0 to 0"""
         list_val = [0, 1, 2, 3, 4, 7, 8, 9, 10]

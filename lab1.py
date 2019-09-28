@@ -58,9 +58,6 @@ def bin_search(target, low, high, int_list):  # must use recursion
     if low == high:  # In the case target doesn't exist
         return None
 
-    if low+1 == high:  # In the case target doesn't exist
-        return None
-
     if int_list[mid] > target:
         return bin_search(target, low, mid - 1, int_list)
     if int_list[mid] < target:
