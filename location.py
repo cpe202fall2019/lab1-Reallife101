@@ -12,9 +12,7 @@ class Location:
 
     # ADD BOILERPLATE HERE (__eq__ and __repr__ functions)
     def __equ__(self, other):
-        return type(other) == Location and self.name == other.name and math.isclose(self.lat,
-                                                                                    other.lat) and math.isclose(
-            self.lon, other.lon)
+        return type(other) == Location  and self.name == other.name and self.lon == other.lon and self.lat == other.lat
 
     def __repr__(self):
         return "Location(" + "'" + self.name + "', " + str(self.lat) + ", " + str(self.lon) + ")"
