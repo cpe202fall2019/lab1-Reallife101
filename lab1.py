@@ -47,7 +47,7 @@ def bin_search(target, low, high, int_list):  # must use recursion
     if not int_list:  # Checks to see if the List is []
         return None  # If so, return none
 
-    mid = (high + low) // 2  # Setting Midpoit index
+    mid = (high + low) // 2  # Setting Midpoint index
 
     if int_list[high] == target:
         return high
@@ -56,6 +56,9 @@ def bin_search(target, low, high, int_list):  # must use recursion
         return mid
 
     if low == high:  # In the case target doesn't exist
+        return None
+
+    if low+1 == high:  # In the case target doesn't exist
         return None
 
     if int_list[mid] > target:
