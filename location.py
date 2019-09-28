@@ -17,7 +17,7 @@ class Location:
 
 
     def __repr__(self):
-        return f"Location('{self.name}', {self.lat}, {self.lon})"
+        return "Location('"+ self.name + "', " + str( self.lat) + ", " + str( self.lon) + ")"
 
 
 def main():
